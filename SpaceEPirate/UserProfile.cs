@@ -4,12 +4,7 @@ using System.Text;
 
 namespace SpaceEPirate
 {
-    class StoryLine
-    {
-
-    }
-
-    private string Scallywag()
+    class UserProfile
     {
 
     }
