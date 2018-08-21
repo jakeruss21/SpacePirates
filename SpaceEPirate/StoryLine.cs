@@ -8,17 +8,17 @@ namespace SpaceEPirate
     {
         internal static void Run()
         {
-            string character = "";
+            string characterName = "";
             int credits = 0;
             string ship = "";
-            string planet = "";
+            string currentPlanet = "";
 
             Console.WriteLine("Welcome to Space Pirate!");
-            character = UserProfile.UserName();
-            credits = UserProfile.UserMoney();
-            ship = SpaceShip.BeginnerShip();
+            characterName = UserProfile.UserName("");
+            credits = UserProfile.UserMoney(1000);
+            ship = SpaceShip.BeginnerShip("SimpleSimon");
+            currentPlanet = Planet.StartPlanet(0);
         }
-
 
 
 
