@@ -64,6 +64,19 @@ namespace SpaceEPirate
             return planetName;
         }
 
+        internal static void Earth()
+        {
+            //TODO -- What does this do?
+        }
 
+        internal static void AlphaCentari ()
+        {
+            //TODO -- What does this do?
+        }
+
+        internal static void M63()
+        {
+            //TODO -- What does this do?
+        }
     }
 }
