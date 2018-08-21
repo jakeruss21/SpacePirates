@@ -11,6 +11,7 @@ namespace SpaceEPirate
             string character = "";
             int credits = 0;
             string ship = "";
+            string planet = "";
 
             Console.WriteLine("Welcome to Space Pirate!");
             character = UserProfile.UserName();
