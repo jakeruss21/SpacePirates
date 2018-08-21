@@ -16,7 +16,6 @@ namespace SpaceEPirate
             Console.WriteLine($"Your character name is {name}.");
             Console.WriteLine($"You have {UserMoney()} credits");
             Console.WriteLine($"Your spaceship is a {SpaceShip.BeginnerShip()}");
-            Console.ReadLine();
             return name;
         }
 

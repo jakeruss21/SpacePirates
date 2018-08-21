@@ -23,9 +23,9 @@ namespace SpaceEPirate
 
         static void StartPoint(string characterName, int credits, string ship, string currentPlanet)
         {
-            Console.WriteLine($"The year was 3058, the year of the dog. {characterName} had been working with their grandfathers for some time learning the family business, wtih the hope of" +
-               $" one day taking over.Little did he know that his time was coming. {characterName}'s grandfather was mysteriously killed while on a solo mission by " +
-                $"the suspected jelous Space Bandit! It is now up to {characterName} to continue grandfather's life passion all while avenging grandfathers death");
+            Console.WriteLine($"The year was 3058, the year of the dog. You, {characterName}, have been working with your grandfather for some time learning the family business, wtih the hope of " +
+               $"one day taking over. Little did he know that his time was coming. Your grandfather was mysteriously killed while on a solo mission by " +
+               $"the suspected jealous Space Bandit, Derricque! It is now up to you, {characterName}, to continue your grandfather's life passion all while avenging his death! \n Good Luck!");
             Console.ReadLine();
         }
         
