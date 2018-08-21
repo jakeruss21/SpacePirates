@@ -6,11 +6,9 @@ namespace SpaceEPirate
 {
     class StoryLine
     {
+        
+
 
     }
 
-    private string Scallywag()
-    {
-
-    }
 }

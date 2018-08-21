@@ -4,7 +4,8 @@ using System.Text;
 
 namespace SpaceEPirate
 {
-    class PlanetLocation
+    class Planet
     {
+
     }
 }
