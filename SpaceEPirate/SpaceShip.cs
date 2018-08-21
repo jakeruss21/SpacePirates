@@ -6,5 +6,10 @@ namespace SpaceEPirate
 {
     class SpaceShip
     {
+
+        internal static string BeginnerShip(string bShip = "SimpleSimon")
+        {
+            return bShip;
+        }
     }
 }

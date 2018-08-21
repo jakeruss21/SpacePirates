@@ -7,21 +7,23 @@ namespace SpaceEPirate
     class UserProfile
     {
 
-
-        private string UserName(string userName = "")
+        internal static string UserName(string name = "")
         {
-            Console.Write("Please enter the character's name:");
-            userName = Console.ReadLine();
-            Console.WriteLine($"Your character name is {userName}");
-            Console.WriteLine($"You have {UserMoney} credits");
-            return userName;
+
+            Console.Write("Please enter the character's name:  ");
+            name = Console.ReadLine();
+            Console.WriteLine($"Your character name is {name}.");
+            Console.WriteLine($"You have {UserMoney()} credits");
+            Console.WriteLine($"Your spaceship is a {SpaceShip.BeginnerShip()}");
+            Console.ReadLine();
+            return name;
         }
 
-        private int UserMoney(int userMoney = 1000)
+        static int UserMoney(int credits = 1000)
         {
 
 
-            return userMoney;
+            return credits;
         }
     }
 }
