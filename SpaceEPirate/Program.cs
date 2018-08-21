@@ -6,6 +6,8 @@ namespace SpaceEPirate
     {
         static void Main(string[] args)
         {
+            
+
             StoryLine.Run();
             //StoryLine class
                 //End Credits

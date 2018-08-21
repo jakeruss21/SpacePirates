@@ -44,8 +44,8 @@ namespace SpaceEPirate
             switch (planetType)
             {
                 case 1:
-                    planetName = "Earth;
-                        break;
+                    planetName = "Earth";
+                    break;
                 case 2:
                     planetName = "Alpha Centari";
                     break;
@@ -53,12 +53,14 @@ namespace SpaceEPirate
                     planetName = "M63";
                     break;
                 default:
-                    planetName = "Prison Planet Gargantuon"
+                    planetName = "Prison Planet Gargantuon";
+                    break;
             }
 
 
             Console.WriteLine($"You have chosen to begin on Planet {planetName}.");
             Console.ReadLine();
+            Console.Clear();
             return planetName;
         }
 

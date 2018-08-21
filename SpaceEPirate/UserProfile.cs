@@ -9,7 +9,8 @@ namespace SpaceEPirate
 
         internal static string UserName(string name = "")
         {
-
+            Console.WriteLine(":::Character Creation:::");
+            Console.WriteLine("==================================");
             Console.Write("Please enter the character's name:  ");
             name = Console.ReadLine();
 
