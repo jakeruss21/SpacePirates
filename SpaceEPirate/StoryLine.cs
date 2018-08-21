@@ -8,8 +8,14 @@ namespace SpaceEPirate
     {
         internal static void Run()
         {
+            string character = "";
+            int credits = 0;
+            string ship = "";
+
             Console.WriteLine("Welcome to Space Pirate!");
-            UserProfile.UserName();
+            character = UserProfile.UserName();
+            credits = UserProfile.UserMoney();
+            ship = SpaceShip.BeginnerShip();
         }
 
 

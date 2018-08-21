@@ -19,7 +19,7 @@ namespace SpaceEPirate
             return name;
         }
 
-        static int UserMoney(int credits = 1000)
+        internal static int UserMoney(int credits = 1000)
         {
 
 
