@@ -39,12 +39,12 @@ namespace SpaceEPirate
 
         static void BeginAdventure(string characterName, int credits, string ship, string currentPlanet)
         {
-            double year = 0;
+            //double year = 0;
             int option = 0;
             bool answer = false;  //used to check inputs
 
             Console.WriteLine($"Welcome to {currentPlanet}!  Where would you like to do? \n1.The Trader's Market\n2.Shipshape Ship Shop\n3.Travel to next planet");
-            while (goodType < 1 || goodType > 3)
+            while (option < 1 || option > 3)
             {
                 do
                 {
@@ -82,22 +82,35 @@ namespace SpaceEPirate
                     break;
             }
 
-
         }
 
-        static void MarketPlace();
+        internal static int[] MarketPlace(int storage = 0)
         {
-            //Put code here
+            string nameGoods = "";
+            int[] newGoods = new int[5];
+
+            nameGoods = Economy.Goods();
+
+            newGoods[0] = Economy.ConvertNumberGoods(nameGoods);
+
+
+            Console.WriteLine($"You have purchased: {nameGoods}.");
+            Console.ReadLine();
+            Console.Clear();
+
+            return newGoods;
         }
 
-        static void ShipGarage();
+        internal static void ShipGarage()
         {
-            //Put code here
+        //Put code here
+        Console.WriteLine("Nothing here yet");
         }
 
-        static void Travel()
+        internal static void Travel()
         {
-            //Put code here
+        //Put code here
+        Console.WriteLine("Nothing here yet");
         }
     }
 

@@ -6,6 +6,7 @@ namespace SpaceEPirate
 {
     class Economy
     {
+
         internal static string Goods(int goodType = 0)
         {
             string goodName = "";
@@ -38,7 +39,7 @@ namespace SpaceEPirate
 
                 if (goodType < 1 || goodType > 7)
                 {
-                    Console.Write("Please enter a good planet ID:  ");
+                    Console.Write("Please enter a valid good ID number:  ");
                 }
                 else { }
 
@@ -69,11 +70,40 @@ namespace SpaceEPirate
                 default:
                     break;                    
             }
-            
-            Console.WriteLine($"You have purchase: {goodName}.");
-            Console.ReadLine();
-            Console.Clear();
             return goodName;
+        }
+
+        internal static int ConvertNumberGoods(string goodName = "")
+        {
+            int goodType = 0;
+            switch (goodName)
+            {
+                case "Cotton":
+                    goodType = 1;
+                    break;
+                case "Oil":
+                    goodType = 2;
+                    break;
+                case "Gold":
+                    goodType = 3;
+                    break;
+                case "Silver":
+                    goodType = 4;
+                    break;
+                case "Diamond dust":
+                    goodType = 5;
+                    break;
+                case "Ship Batteries":
+                    goodType = 6;
+                    break;
+                case "Wood":
+                    goodType = 7;
+                    break;
+                default:
+                    break;
+            }
+            return goodType;
+
         }
     }
 }
