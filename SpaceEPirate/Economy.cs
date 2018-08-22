@@ -70,12 +70,10 @@ namespace SpaceEPirate
                     break;                    
             }
             
-
             Console.WriteLine($"You have purchase: {goodName}.");
             Console.ReadLine();
             Console.Clear();
             return goodName;
-
         }
     }
 }

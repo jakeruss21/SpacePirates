@@ -107,9 +107,9 @@ namespace SpaceEPirate
                     break;
             }
 
-            distance = Math.Sqrt((((startX - startY) * 2) + ((startY - endY) * 2)));
-            return distance;
-                
+            distance = Math.Pow((startX - endX), 2) + Math.Pow((startY - endY), 2);
+            distance = Math.Sqrt(distance);
+            return distance;                
         }
 
         internal static void Earth()

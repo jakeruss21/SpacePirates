@@ -39,9 +39,66 @@ namespace SpaceEPirate
 
         static void BeginAdventure(string characterName, int credits, string ship, string currentPlanet)
         {
+            double year = 0;
+            int option = 0;
+            bool answer = false;  //used to check inputs
+
+            Console.WriteLine($"Welcome to {currentPlanet}!  Where would you like to do? \n1.The Trader's Market\n2.Shipshape Ship Shop\n3.Travel to next planet");
+            while (goodType < 1 || goodType > 3)
+            {
+                do
+                {
+                    try
+                    {
+                        option = int.Parse(Console.ReadLine());
+                        answer = true;
+                    }
+                    catch (Exception)
+                    {
+                        Console.Write("Please enter a valid option:  ");
+                        answer = false;
+                    }
+                } while (answer == false);
+
+                if (option < 1 || option > 4)
+                {
+                    Console.Write("Please enter a valid option:  ");
+                }
+                else { }
+            }
+
+            switch (option)
+            {
+                case 1:
+                    MarketPlace();
+                    break;
+                case 2:
+                    ShipGarage();
+                    break;
+                case 3:
+                    Travel();
+                    break;
+                default:
+                    break;
+            }
+
 
         }
-        
+
+        static void MarketPlace();
+        {
+            //Put code here
+        }
+
+        static void ShipGarage();
+        {
+            //Put code here
+        }
+
+        static void Travel()
+        {
+            //Put code here
+        }
     }
 
 }
