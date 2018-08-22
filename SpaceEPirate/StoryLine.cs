@@ -92,7 +92,8 @@ namespace SpaceEPirate
             nameGoods = Economy.Goods();
 
             newGoods[0] = Economy.ConvertNumberGoods(nameGoods);
-            
+
+            newGoods[1] = Economy.TotalCost(newGoods[0]);
 
             Console.WriteLine($"You have purchased: {nameGoods}.");
             Console.ReadLine();

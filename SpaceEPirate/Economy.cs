@@ -105,7 +105,15 @@ namespace SpaceEPirate
                     break;
             }
             return goodType;
+        }
 
+        internal static int TotalCost(int goodType)
+        {
+            int totalCost = 0;
+            int quantity = 0;
+
+
+            return totalCost;
         }
     }
 }
