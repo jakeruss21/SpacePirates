@@ -11,5 +11,17 @@ namespace SpaceEPirate
         {
             return bShip;
         }
+        internal static string MidLevelShip(string mShip = "Space Knight")
+        {
+
+            return mShip;
+        }
+        internal static string ExpertShip(string topShip = "Avenger jet")
+        {
+
+            return topShip;
+        }
+
+
     }
 }
