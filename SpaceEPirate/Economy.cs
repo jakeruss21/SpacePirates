@@ -13,13 +13,15 @@ namespace SpaceEPirate
             Boolean answer = false;
 
             Console.WriteLine("Please enter the number for the good you would like to purchase");
-            Console.WriteLine("1. Cotton");
-            Console.WriteLine("2. Oil");
-            Console.WriteLine("3. Gold");
-            Console.WriteLine("4. Silver");
-            Console.WriteLine("5. Diamond dust");
-            Console.WriteLine("6. Ship Batteries");
-            Console.WriteLine("7. Wood");
+            Console.WriteLine("=========================================================================");
+            Console.WriteLine("Item                 || Cost per Unit    || Cargo space required per unit");
+            Console.WriteLine("1. Cotton            || 50CC             || 2 ");
+            Console.WriteLine("2. Oil               || 20CC             || 1 ");
+            Console.WriteLine("3. Gold              || 100CC            || 5 ");
+            Console.WriteLine("4. Silver            || 75CC             || 4 ");
+            Console.WriteLine("5. Diamond dust      || 1000CC           || 10 ");
+            Console.WriteLine("6. Ship Batteries    || 250CC            || 5 ");
+            Console.WriteLine("7. Wood              || 75CC             || 10 ");
 
             while (goodType < 1 || goodType > 5)
             {

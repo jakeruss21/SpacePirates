@@ -92,7 +92,7 @@ namespace SpaceEPirate
             nameGoods = Economy.Goods();
 
             newGoods[0] = Economy.ConvertNumberGoods(nameGoods);
-
+            
 
             Console.WriteLine($"You have purchased: {nameGoods}.");
             Console.ReadLine();
