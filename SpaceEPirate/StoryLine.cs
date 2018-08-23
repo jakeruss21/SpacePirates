@@ -27,12 +27,13 @@ namespace SpaceEPirate
             Console.WriteLine($"The year was 3058, the year of the dog. You, {characterName}, have been working with your grandfather for some time learning the family business, wtih the hope of " +
                $"one day taking over. Little did he know that his time was coming. Your grandfather was mysteriously killed while on a solo mission by " +
                $"the suspected jealous Space Bandit, Derricque! It is now up to you, {characterName}, to continue your grandfather's life passion all while avenging his death! \n Good Luck!");
+            Console.WriteLine("Press <Enter> to continue...");
             Console.ReadLine();
             Console.WriteLine("\n\n");
             Console.WriteLine("Instructions: You have been tasked to travel throughout the known territories to trade goods.  You can trade goods at the Market on each planet. " +
                     $"You can also purchase and repair your ship at Shipshape's Ship Shop.  Travel to each different planet to trade the goods and make a profit, or lose credits. " +
                     $"Make as much profit as you can, as that will be the only way to find out what happened to your grandfather! But beware, you have a limited time before you're caught by Derricque!  Good luck {characterName}.");
-
+            Console.WriteLine("Press <Enter> to continue...");
             Console.ReadLine();
             Console.Clear();
         }
@@ -42,9 +43,9 @@ namespace SpaceEPirate
             //double year = 0;
             int option = 0;
             bool answer = false;  //used to check inputs
-            int cargo = 0;
+            int cargo = 1000;
 
-            Console.WriteLine($"Welcome to {currentPlanet}!  Where would you like to do? \n1.The Trader's Market\n2.Shipshape Ship Shop\n3.Travel to next planet");
+            Console.WriteLine($"Welcome to {currentPlanet}!  What would you like to do? \n1.The Trader's Market\n2.Shipshape Ship Shop\n3.Travel to next planet");
             while (option < 1 || option > 3)
             {
                 do
@@ -85,17 +86,28 @@ namespace SpaceEPirate
 
         }
 
-        internal static int[] MarketPlace(int storage = 0, int credits = 0, int cargoSpace = 1000)
+        internal static int[] MarketPlace(int storage = 1000, int credits = 0)
         {
-            int[] newGoods = new int[2];
+            int[] newGoods = new int[4]; // 0 = goodType; 1 = Quantity of goodType; 2 = remaining credits after purchase; 3 = remaining cargo space;
             string nameGood = "";
+            int cost = 0;
+            int cargoSpace = 0;
 
-            newGoods[0] = Economy.BuyGoods();
+            Console.WriteLine($"You have {credits}CC and {storage} space available in your ship.\n");
+            
+            newGoods[0] = Economy.BuyGoods();  //Type of good purchased
             nameGood = Economy.ConvertNumberGoods(newGoods[0]);
 
-            newGoods[1] = Economy.TotalCost(newGoods[0], credits, cargoSpace);
+            newGoods[1] = Economy.TotalCost(newGoods[0], credits, storage); //Quantity of goods purchased
 
-            Console.WriteLine($"You have purchased: {newGoods[1]} units of {nameGood}.");
+            cost = newGoods[1] * Economy.UnitCost(newGoods[0]);  //Remaining CosmicCredits
+            newGoods[2] = credits - cost;
+
+            cargoSpace = newGoods[1] * Economy.UnitSize(newGoods[0]);
+            newGoods[3] = storage - cargoSpace;  //Remaining storage space in the ship
+
+            Console.WriteLine($"You have purchased: {newGoods[1]} units of {nameGood} for {cost}CC.");
+            Console.WriteLine($"You have {newGoods[2]}CC and {newGoods[3]} storage space on your ship remaining.");
             Console.ReadLine();
             Console.Clear();
 
