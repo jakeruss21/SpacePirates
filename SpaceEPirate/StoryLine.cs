@@ -181,10 +181,12 @@ namespace SpaceEPirate
             }
             return cost;
 
-            {
-                //Put code here
-                Console.WriteLine("Nothing here yet");
-            }
+        }
+
+        internal static void Travel()
+        {
+            //Put code here
+            Console.WriteLine("Nothing here yet");
         }
 
     }
