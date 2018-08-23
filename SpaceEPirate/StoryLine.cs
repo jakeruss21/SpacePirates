@@ -76,9 +76,10 @@ namespace SpaceEPirate
                 case 2:
                     ShipGarage();
                     break;
-                case 3:
-                    Travel();
-                    break;
+                //case 3:
+                    //Travel();
+                    //break;
+
                 default:
                     break;
             }
@@ -106,16 +107,17 @@ namespace SpaceEPirate
         {
             Boolean answer = false;
 
-            //Put code here
+            
             Console.WriteLine("Welcome to the ship garage. You may select or buy a ship you would like to fly");
             Console.ReadLine();
 
-            Console.WriteLine($"Please enter the number for the good you buy or fly");
+            Console.WriteLine($"Please enter the number for the ship you would like to buy or fly");
             Console.WriteLine($"=========================================================================");
-            Console.WriteLine($"Item                 || Cost of Ship  || Amount of Cargo space avalible ");
-            Console.WriteLine($"1. {ConvertShips(1)}            || {ShipCost(1)}CC            || 2 ");
-            Console.WriteLine($"2. {ConvertShips(2)}               || {ShipCost(2)}CC            || 1 ");
-            Console.WriteLine($"3. {ConvertShips(3)}              || {ShipCost(3)}CC            || 5 ");
+            Console.WriteLine($"Item                            || Cost of Ship   || Cargo Capacity");
+            Console.WriteLine($"=========================================================================");
+            Console.WriteLine($"1. {ConvertShips(1)}            || {ShipCost(1)}CC||{ShipCapacity(1)}            || ");
+            Console.WriteLine($"2. {ConvertShips(2)}            || {ShipCost(2)}CC|| {ShipCapacity(2)}           || ");
+            Console.WriteLine($"3. {ConvertShips(3)}            || {ShipCost(3)}CC|| {ShipCapacity(3)}           || ");
 
             while (shipType < 1 || shipType > 3)
             {
@@ -128,19 +130,22 @@ namespace SpaceEPirate
                     }
                     catch (Exception)
                     {
-                        Console.Write("Please enter a valid good ID number:  ");
+                        Console.Write("Please enter a valid ship ID number:  ");
                         answer = false;
                     }
                 } while (answer == false);
 
                 if (shipType < 1 || shipType > 3)
                 {
-                    Console.Write("Please enter a valid good ID number:  ");
+                    Console.Write("Please enter a valid ship ID number:  ");
                 }
                 else { }
             }
             return shipType;
         }
+
+
+
         internal static string ConvertShips(int shipType = 0)
         {
             string shipName = "";
@@ -156,6 +161,7 @@ namespace SpaceEPirate
                     shipName = "Avenger Jet";
                     break;
                 default:
+                    shipName = "Simple Simon";
                     break;
             }
             return shipName;
@@ -180,13 +186,39 @@ namespace SpaceEPirate
                     break;
             }
             return cost;
-
-            {
-                //Put code here
-                Console.WriteLine("Nothing here yet");
-            }
         }
+        internal static int ShipCapacity(int shipType = 0)
+
+
+        {
+          int capacity = 0;
+
+           switch (shipType)
+           {
+                  case 1:
+                        capacity = 3000;
+                 break;
+                    case 2:
+                        capacity = 4000;
+                  break;
+                    case 3:
+                        capacity = 5500;
+                  break;
+                  default:
+                  break;
+
+
+           }
+
+           return capacity;
+
+        }   
+              
+                
+                //Put code here
+                //Console.WriteLine("Nothing here yet");
+                       
 
     }
-
 }
+
