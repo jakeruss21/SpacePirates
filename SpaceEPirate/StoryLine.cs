@@ -113,9 +113,10 @@ namespace SpaceEPirate
             Console.WriteLine($"Please enter the number for the good you buy or fly");
             Console.WriteLine($"=========================================================================");
             Console.WriteLine($"Item                 || Cost of Ship  || Amount of Cargo space avalible ");
-            Console.WriteLine($"1. {ConvertShips(1)}            || {ShipCost(1)}CC            || 2 ");
-            Console.WriteLine($"2. {ConvertShips(2)}               || {ShipCost(2)}CC            || 1 ");
-            Console.WriteLine($"3. {ConvertShips(3)}              || {ShipCost(3)}CC            || 5 ");
+            Console.WriteLine($"=========================================================================");
+            Console.WriteLine($"1. {ConvertShips(1)} || {ShipCost(1)}CC        {CargoCapacity(1)}     || ");
+            Console.WriteLine($"2. {ConvertShips(2)} || {ShipCost(2)}CC        {CargoCapacity(2)}     ||  ");
+            Console.WriteLine($"3. {ConvertShips(3)} || {ShipCost(3)}CC        {CargoCapacity(3)}     ||  ");
 
             while (shipType < 1 || shipType > 3)
             {
@@ -182,13 +183,32 @@ namespace SpaceEPirate
             return cost;
 
         }
-
-        internal static void Travel()
+        internal static int CargoCapacity(int shipType = 0)
         {
-            //Put code here
-            Console.WriteLine("Nothing here yet");
-        }
+            int capacity = 0;
 
+            switch (shipType)
+            {
+                case 1:
+                    capacity = 3000;
+                    break;
+                case 2:
+                    capacity = 3500;
+                    break;
+                case 3:
+                    capacity = 2000;
+                    break;
+                default:
+                    break;
+            }
+            return capacity;
+        }
+            /*internal static void Travel()
+            {
+                //Put code here
+                Console.WriteLine("Nothing here yet");
+            }*/
+        
     }
 
 }
