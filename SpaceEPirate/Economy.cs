@@ -23,7 +23,7 @@ namespace SpaceEPirate
             Console.WriteLine("6. Ship Batteries    || 250CC            || 5 ");
             Console.WriteLine("7. Wood              || 75CC             || 10 ");
 
-            while (goodType < 1 || goodType > 5)
+            while (goodType < 1 || goodType > 7)
             {
                 do
                 {
