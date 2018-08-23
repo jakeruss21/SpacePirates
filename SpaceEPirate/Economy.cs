@@ -85,38 +85,45 @@ namespace SpaceEPirate
             int newCargo = 0;
             int quantity = 0;
             Boolean answer = false;
+            Boolean insufficient = true;
 
-            Console.Write($"How much of {ConvertNumberGoods(goodType)} do you want to purchase?  ");
             do
             {
-                try
+                Console.Write($"How much of {ConvertNumberGoods(goodType)} do you want to purchase?  ");
+                do
                 {
-                    quantity = int.Parse(Console.ReadLine());
-                    answer = true;
-                }
-                catch (Exception)
+                    try
+                    {
+                        quantity = int.Parse(Console.ReadLine());
+                        answer = true;
+                    }
+                    catch (Exception)
+                    {
+                        Console.Write("Please enter a number:  ");
+                        answer = false;
+                    }
+                } while (answer == false);
+
+                totalCost = UnitCost(goodType) * quantity;
+                newCargo = UnitSize(goodType) * quantity;
+
+                if (totalCost > credits)
                 {
-                    Console.Write("Please enter a number:  ");
-                    answer = false;
+                    Console.WriteLine($"Insufficient funds.  You have {credits}cc and {quantity} of {ConvertNumberGoods(goodType)} costs {totalCost}");
+                    Console.WriteLine("Please try again.");
+                    insufficient = true;
                 }
-            } while (answer == false);
-
-            totalCost = UnitCost(goodType) * quantity;
-            newCargo = UnitSize(goodType) * quantity;
-
-            if (totalCost > credits)
-            {
-                Console.WriteLine($"Insufficient funds.  You have {credits}cc and {quantity} of {ConvertNumberGoods(goodType)} costs {totalCost}");
-                Console.WriteLine("Please try again.");
-
-                TotalCost(goodType, credits, cargoRoom);
-            }
-            else if (newCargo >  cargoRoom)
-            {
-                Console.WriteLine($"Insufficient cargo space.  You need {newCargo} space and you only have {cargoRoom}.");
-                Console.WriteLine("Please try again.");
-                TotalCost(goodType, credits, cargoRoom);
-            }
+                else if (newCargo > cargoRoom)
+                {
+                    Console.WriteLine($"Insufficient cargo space.  You need {newCargo} space and you only have {cargoRoom}.");
+                    Console.WriteLine("Please try again.");
+                    insufficient = true;
+                }
+                else
+                {
+                    insufficient = false;
+                }
+            } while (insufficient == true);
 
             return quantity;
         }
