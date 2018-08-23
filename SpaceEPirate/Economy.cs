@@ -7,22 +7,22 @@ namespace SpaceEPirate
     class Economy
     {
 
-        internal static int Goods(int goodType = 0)
+        internal static int BuyGoods(int goodType = 0)
         {
             Boolean answer = false;
 
             Console.WriteLine($"Please enter the number for the good you would like to purchase");
             Console.WriteLine($"=========================================================================");
             Console.WriteLine($"Item                 || Cost per Unit    || Cargo space required per unit");
-            Console.WriteLine($"1. {ConvertNumberGoods(1)}            || {UnitCost(1)}CC            || 2 ");
-            Console.WriteLine($"2. {ConvertNumberGoods(2)}               || {UnitCost(2)}CC            || 1 ");
-            Console.WriteLine($"3. {ConvertNumberGoods(3)}              || {UnitCost(3)}CC            || 5 ");
-            Console.WriteLine($"4. {ConvertNumberGoods(4)}            || {UnitCost(4)}CC             || 4 ");
-            Console.WriteLine($"5. {ConvertNumberGoods(5)}      || {UnitCost(5)}CC              || 10 ");
-            Console.WriteLine($"6. {ConvertNumberGoods(6)}    || {UnitCost(6)}CC             || 5 ");
-            Console.WriteLine($"7. {ConvertNumberGoods(7)}              || {UnitCost(7)}CC             || 10 ");
+            Console.WriteLine($"1. {ConvertNumberGoods(1)}            || {UnitCost(1)}CC             || {UnitSize(1)} ");
+            Console.WriteLine($"2. {ConvertNumberGoods(2)}               || {UnitCost(2)}CC             || {UnitSize(2)} ");
+            Console.WriteLine($"3. {ConvertNumberGoods(3)}              || {UnitCost(3)}CC            || {UnitSize(3)} ");
+            Console.WriteLine($"4. {ConvertNumberGoods(4)}            || {UnitCost(4)}CC             || {UnitSize(4)} ");
+            Console.WriteLine($"5. {ConvertNumberGoods(5)}      || {UnitCost(5)}CC           || {UnitSize(5)} ");
+            Console.WriteLine($"6. {ConvertNumberGoods(6)}    || {UnitCost(6)}CC            || {UnitSize(6)} ");
+            Console.WriteLine($"7. {ConvertNumberGoods(7)}              || {UnitCost(7)}CC            || {UnitSize(7)} ");
 
-            while (goodType < 1 || goodType > 5)
+            while (goodType < 1 || goodType > 7)
             {
                 do
                 {
@@ -79,14 +79,14 @@ namespace SpaceEPirate
             return goodName;
         }
 
-        internal static int TotalCost(int goodType = 0, int credits = 0, int cargoRoom = 0)
+        internal static int TotalCost(int goodType = 0, int credits = 0, int cargoRoom = 100)
         {
             int totalCost = 0;
-            int totalCargo = 0;
+            int newCargo = 0;
             int quantity = 0;
             Boolean answer = false;
 
-            Console.Write($"How much do you want to purchase?  ");
+            Console.Write($"How much of {ConvertNumberGoods(goodType)} do you want to purchase?  ");
             do
             {
                 try
@@ -96,27 +96,29 @@ namespace SpaceEPirate
                 }
                 catch (Exception)
                 {
-                    Console.Write("Please enter a valid number:  ");
+                    Console.Write("Please enter a number:  ");
                     answer = false;
                 }
             } while (answer == false);
 
             totalCost = UnitCost(goodType) * quantity;
+            newCargo = UnitSize(goodType) * quantity;
 
             if (totalCost > credits)
             {
                 Console.WriteLine($"Insufficient funds.  You have {credits}cc and {quantity} of {ConvertNumberGoods(goodType)} costs {totalCost}");
                 Console.WriteLine("Please try again.");
-                Console.ReadLine();
-                Console.Clear();
+
                 TotalCost(goodType, credits, cargoRoom);
             }
-            else if (cargoRoom >  cargoSpace)
+            else if (newCargo >  cargoRoom)
             {
-
+                Console.WriteLine($"Insufficient cargo space.  You need {newCargo} space and you only have {cargoRoom}.");
+                Console.WriteLine("Please try again.");
+                TotalCost(goodType, credits, cargoRoom);
             }
 
-            return totalCost;
+            return quantity;
         }
 
         internal static int UnitCost(int goodType = 0)
@@ -149,7 +151,41 @@ namespace SpaceEPirate
                 default:
                     break;
             }
+
             return cost;
+        }
+
+        internal static int UnitSize(int goodType = 0)
+        {
+            int cargoSize = 0;
+
+            switch (goodType)
+            {
+                case 1:
+                    cargoSize = 1;
+                    break;
+                case 2:
+                    cargoSize = 2;
+                    break;
+                case 3:
+                    cargoSize = 3;
+                    break;
+                case 4:
+                    cargoSize = 4;
+                    break;
+                case 5:
+                    cargoSize = 10;
+                    break;
+                case 6:
+                    cargoSize = 5;
+                    break;
+                case 7:
+                    cargoSize = 1000;
+                    break;
+                default:
+                    break;
+            }
+            return cargoSize;
         }
 
     }
