@@ -42,6 +42,7 @@ namespace SpaceEPirate
             //double year = 0;
             int option = 0;
             bool answer = false;  //used to check inputs
+            int cargo = 0;
 
             Console.WriteLine($"Welcome to {currentPlanet}!  Where would you like to do? \n1.The Trader's Market\n2.Shipshape Ship Shop\n3.Travel to next planet");
             while (option < 1 || option > 3)
@@ -70,7 +71,7 @@ namespace SpaceEPirate
             switch (option)
             {
                 case 1:
-                    MarketPlace();
+                    MarketPlace(cargo, credits);
                     break;
                 case 2:
                     ShipGarage();
@@ -84,18 +85,17 @@ namespace SpaceEPirate
 
         }
 
-        internal static int[] MarketPlace(int storage = 0)
+        internal static int[] MarketPlace(int storage = 0, int credits = 0, int cargoSpace = 0)
         {
-            string nameGoods = "";
             int[] newGoods = new int[5];
+            string nameGood = "";
 
-            nameGoods = Economy.Goods();
+            newGoods[0] = Economy.Goods();
+            nameGood = Economy.ConvertNumberGoods(newGoods[0]);
 
-            newGoods[0] = Economy.ConvertNumberGoods(nameGoods);
+            newGoods[1] = Economy.TotalCost(newGoods[0], credits, cargoSpace);
 
-            newGoods[1] = Economy.TotalCost(newGoods[0]);
-
-            Console.WriteLine($"You have purchased: {nameGoods}.");
+            Console.WriteLine($"You have purchased: {newGoods[1]} units of {nameGood}.");
             Console.ReadLine();
             Console.Clear();
 

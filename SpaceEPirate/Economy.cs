@@ -7,21 +7,20 @@ namespace SpaceEPirate
     class Economy
     {
 
-        internal static string Goods(int goodType = 0)
+        internal static int Goods(int goodType = 0)
         {
-            string goodName = "";
             Boolean answer = false;
 
-            Console.WriteLine("Please enter the number for the good you would like to purchase");
-            Console.WriteLine("=========================================================================");
-            Console.WriteLine("Item                 || Cost per Unit    || Cargo space required per unit");
-            Console.WriteLine("1. Cotton            || 50CC             || 2 ");
-            Console.WriteLine("2. Oil               || 20CC             || 1 ");
-            Console.WriteLine("3. Gold              || 100CC            || 5 ");
-            Console.WriteLine("4. Silver            || 75CC             || 4 ");
-            Console.WriteLine("5. Diamond dust      || 1000CC           || 10 ");
-            Console.WriteLine("6. Ship Batteries    || 250CC            || 5 ");
-            Console.WriteLine("7. Wood              || 75CC             || 10 ");
+            Console.WriteLine($"Please enter the number for the good you would like to purchase");
+            Console.WriteLine($"=========================================================================");
+            Console.WriteLine($"Item                 || Cost per Unit    || Cargo space required per unit");
+            Console.WriteLine($"1. {ConvertNumberGoods(1)}            || {UnitCost(1)}CC            || 2 ");
+            Console.WriteLine($"2. {ConvertNumberGoods(2)}               || {UnitCost(2)}CC            || 1 ");
+            Console.WriteLine($"3. {ConvertNumberGoods(3)}              || {UnitCost(3)}CC            || 5 ");
+            Console.WriteLine($"4. {ConvertNumberGoods(4)}            || {UnitCost(4)}CC             || 4 ");
+            Console.WriteLine($"5. {ConvertNumberGoods(5)}      || {UnitCost(5)}CC              || 10 ");
+            Console.WriteLine($"6. {ConvertNumberGoods(6)}    || {UnitCost(6)}CC             || 5 ");
+            Console.WriteLine($"7. {ConvertNumberGoods(7)}              || {UnitCost(7)}CC             || 10 ");
 
             while (goodType < 1 || goodType > 7)
             {
@@ -44,8 +43,13 @@ namespace SpaceEPirate
                     Console.Write("Please enter a valid good ID number:  ");
                 }
                 else { }
-
             }
+            return goodType;
+        }
+
+        internal static string ConvertNumberGoods(int goodType = 0)
+        {
+            string goodName = "";
             switch (goodType)
             {
                 case 1:
@@ -70,50 +74,83 @@ namespace SpaceEPirate
                     goodName = "Wood";
                     break;
                 default:
-                    break;                    
+                    break;
             }
             return goodName;
         }
 
-        internal static int ConvertNumberGoods(string goodName = "")
+        internal static int TotalCost(int goodType = 0, int credits = 0, int cargoRoom = 0)
         {
-            int goodType = 0;
-            switch (goodName)
+            int totalCost = 0;
+            int totalCargo = 0;
+            int quantity = 0;
+            Boolean answer = false;
+
+            Console.Write($"How much do you want to purchase?  ");
+            do
             {
-                case "Cotton":
-                    goodType = 1;
+                try
+                {
+                    quantity = int.Parse(Console.ReadLine());
+                    answer = true;
+                }
+                catch (Exception)
+                {
+                    Console.Write("Please enter a valid number:  ");
+                    answer = false;
+                }
+            } while (answer == false);
+
+            totalCost = UnitCost(goodType) * quantity;
+
+            if (totalCost > credits)
+            {
+                Console.WriteLine($"Insufficient funds.  You have {credits}cc and {quantity} of {ConvertNumberGoods(goodType)} costs {totalCost}");
+                Console.WriteLine("Please try again.");
+                Console.ReadLine();
+                Console.Clear();
+                TotalCost(goodType, credits, cargoRoom);
+            }
+            else if (cargoRoom >  cargoSpace)
+            {
+
+            }
+
+            return totalCost;
+        }
+
+        internal static int UnitCost(int goodType = 0)
+        {
+            int cost = 0;
+
+            switch(goodType)
+            {
+                case 1:
+                    cost = 50;
                     break;
-                case "Oil":
-                    goodType = 2;
+                case 2:
+                    cost = 20;
                     break;
-                case "Gold":
-                    goodType = 3;
+                case 3:
+                    cost = 100;
                     break;
-                case "Silver":
-                    goodType = 4;
+                case 4:
+                    cost = 75;
                     break;
-                case "Diamond dust":
-                    goodType = 5;
+                case 5:
+                    cost = 1000;
                     break;
-                case "Ship Batteries":
-                    goodType = 6;
+                case 6:
+                    cost = 250;
                     break;
-                case "Wood":
-                    goodType = 7;
+                case 7:
+                    cost = 500;
                     break;
                 default:
                     break;
             }
-            return goodType;
+            return cost;
         }
 
-        internal static int TotalCost(int goodType)
-        {
-            int totalCost = 0;
-            int quantity = 0;
-
-
-            return totalCost;
-        }
     }
 }
