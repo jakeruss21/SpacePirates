@@ -87,7 +87,7 @@ namespace SpaceEPirate
 
         internal static int[] MarketPlace(int storage = 0, int credits = 0, int cargoSpace = 1000)
         {
-            int[] newGoods = new int[5];
+            int[] newGoods = new int[2];
             string nameGood = "";
 
             newGoods[0] = Economy.BuyGoods();
