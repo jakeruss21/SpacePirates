@@ -126,9 +126,9 @@ namespace SpaceEPirate
             Console.WriteLine($"=========================================================================");
             Console.WriteLine($"Item                 || Cost of Ship  || Amount of Cargo space avalible ");
             Console.WriteLine($"=========================================================================");
-            Console.WriteLine($"1. {ConvertShips(1)} || {ShipCost(1)}CC        {CargoCapacity(1)}     || ");
-            Console.WriteLine($"2. {ConvertShips(2)} || {ShipCost(2)}CC        {CargoCapacity(2)}     ||  ");
-            Console.WriteLine($"3. {ConvertShips(3)} || {ShipCost(3)}CC        {CargoCapacity(3)}     ||  ");
+            Console.WriteLine($"1. {ConvertShips(1)}      || {ShipCost(1)}CC           ||  {CargoCapacity(1)}      ");
+            Console.WriteLine($"2. {ConvertShips(2)}      || {ShipCost(2)}CC        ||  {CargoCapacity(2)}       ");
+            Console.WriteLine($"3. {ConvertShips(3)}       || {ShipCost(3)}CC        ||  {CargoCapacity(3)}       ");
 
             while (shipType < 1 || shipType > 3)
             {
@@ -215,11 +215,12 @@ namespace SpaceEPirate
             }
             return capacity;
         }
-            /*internal static void Travel()
+
+        internal static void Travel()
             {
                 //Put code here
                 Console.WriteLine("Nothing here yet");
-            }*/
+            }
         
     }
 
