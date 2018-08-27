@@ -184,10 +184,10 @@ namespace SpaceEPirate
                     cargoSize = 10;
                     break;
                 case 6:
-                    cargoSize = 5;
+                    cargoSize = 6;
                     break;
                 case 7:
-                    cargoSize = 1000;
+                    cargoSize = 7;
                     break;
                 default:
                     break;

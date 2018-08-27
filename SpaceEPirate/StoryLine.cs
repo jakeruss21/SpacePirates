@@ -96,10 +96,10 @@ namespace SpaceEPirate
 
         }
 
-        internal static int[] MarketPlace(int storage = 1000, int credits = 0)
+        internal static int[] MarketPlace(int storage = 100, int credits = 0)
         {
             int[] newGoods = new int[4]; // 0 = goodType; 1 = Quantity of goodType; 2 = remaining credits after purchase; 3 = remaining cargo space;
-
+            List<string> goodsNCargo = new List<string>{""};
             int option = 0;
             Boolean answer = false;
 
