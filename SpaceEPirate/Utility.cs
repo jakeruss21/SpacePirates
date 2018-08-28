@@ -6,14 +6,15 @@ namespace SpaceEPirate
 {
     class Utility
     {
-        public static int ErrorHandler(int option = 0, int numOptions = 3)
+        public static int ErrorHandler(int numOptions = 3)
         {
             Boolean answer = false;
-
+            int option = 0;
             while (option < 1 || option > numOptions)
             {
                 do
                 {
+
                     try
                     {
                         option = int.Parse(Console.ReadLine());
