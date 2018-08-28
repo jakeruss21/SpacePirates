@@ -25,7 +25,6 @@ namespace SpaceEPirate
         {
             Boolean answer = false;
 
-            //Put code here
             Console.WriteLine("Welcome to the ship garage. You may select or buy a ship you would like to fly");
             Console.ReadLine();
 
