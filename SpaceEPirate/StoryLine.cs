@@ -81,8 +81,8 @@ namespace SpaceEPirate
         {
             int[] newGoods = new int[4]; // 0 = goodType; 1 = Quantity of goodType; 2 = remaining credits after purchase; 3 = remaining cargo space;
             int option = 0;
-            int numOptions = 3;
 
+            int numOptions = 2;
             Console.WriteLine($"You have {credits}CC and {storage} space available in your ship.\n");
             Console.WriteLine($"What would you like to do? \n1. Buy \n2. Sell \n3. Go to Planet Menu");
 

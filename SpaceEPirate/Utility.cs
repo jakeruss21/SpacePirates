@@ -6,7 +6,7 @@ namespace SpaceEPirate
 {
     class Utility
     {
-        public static int ErrorHandler(int numOptions = 3)
+        public static int ErrorHandler(int numOptions = 2147483647)
         {
             Boolean answer = false;
             int option = 0;
@@ -15,6 +15,7 @@ namespace SpaceEPirate
             {
                 do
                 {
+
                     try
                     {
                         option = int.Parse(Console.ReadLine());

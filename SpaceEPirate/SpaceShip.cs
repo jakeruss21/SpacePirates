@@ -23,7 +23,7 @@ namespace SpaceEPirate
         }
        internal static int ShipGarage(int shipType = 0)
         {
-            Boolean answer = false;
+            int numOptions = 3;
 
             Console.WriteLine("Welcome to the ship garage. You may select or buy a ship you would like to fly");
             Console.ReadLine();
@@ -36,28 +36,8 @@ namespace SpaceEPirate
             Console.WriteLine($"2. {ConvertShips(2)}      || {ShipCost(2)}CC        ||  {CargoCapacity(2)}       ");
             Console.WriteLine($"3. {ConvertShips(3)}       || {ShipCost(3)}CC        ||  {CargoCapacity(3)}       ");
 
-            while (shipType < 1 || shipType > 3)
-            {
-                do
-                {
-                    try
-                    {
-                        shipType = int.Parse(Console.ReadLine());
-                        answer = true;
-                    }
-                    catch (Exception)
-                    {
-                        Console.Write("Please enter a valid good ID number:  ");
-                        answer = false;
-                    }
-                } while (answer == false);
+            shipType = Utility.ErrorHandler(numOptions);
 
-                if (shipType < 1 || shipType > 3)
-                {
-                    Console.Write("Please enter a valid good ID number:  ");
-                }
-                else { }
-            }
             return shipType;
         }
         internal static string ConvertShips(int shipType = 0)

@@ -30,25 +30,16 @@ namespace SpaceEPirate
             switch (goodType)
             {
                 case 1:
-                    goodName = "Cotton";
+                    goodName = "Oil";
                     break;
                 case 2:
-                    goodName = "Oil";
+                    goodName = "Silver";
                     break;
                 case 3:
                     goodName = "Gold";
                     break;
                 case 4:
-                    goodName = "Silver";
-                    break;
-                case 5:
-                    goodName = "Diamond dust";
-                    break;
-                case 6:
-                    goodName = "Ship Batteries";
-                    break;
-                case 7:
-                    goodName = "Wood";
+                    goodName = "Titanium";
                     break;
                 default:
                     break;
@@ -58,28 +49,16 @@ namespace SpaceEPirate
 
         internal static int TotalCost(int goodType = 0, int credits = 0, int cargoRoom = 100)
         {
-            int totalCost = 0;
+            double totalCost = 0;
             int newCargo = 0;
             int quantity = 0;
-            Boolean answer = false;
             Boolean insufficient = true;
 
             do
             {
                 Console.Write($"How much of {ConvertNumberGoods(goodType)} do you want to purchase?  ");
-                do
-                {
-                    try
-                    {
-                        quantity = int.Parse(Console.ReadLine());
-                        answer = true;
-                    }
-                    catch (Exception)
-                    {
-                        Console.Write("Please enter a number:  ");
-                        answer = false;
-                    }
-                } while (answer == false);
+
+                quantity = Utility.ErrorHandler(1000000);
 
                 totalCost = UnitCost(goodType) * quantity;
                 newCargo = UnitSize(goodType) * quantity;
@@ -115,22 +94,13 @@ namespace SpaceEPirate
                     cost = 50;
                     break;
                 case 2:
-                    cost = 20;
-                    break;
-                case 3:
                     cost = 100;
                     break;
+                case 3:
+                    cost = 150;
+                    break;
                 case 4:
-                    cost = 75;
-                    break;
-                case 5:
-                    cost = 1000;
-                    break;
-                case 6:
-                    cost = 250;
-                    break;
-                case 7:
-                    cost = 500;
+                    cost = 200;
                     break;
                 default:
                     break;
@@ -156,15 +126,6 @@ namespace SpaceEPirate
                     break;
                 case 4:
                     cargoSize = 4;
-                    break;
-                case 5:
-                    cargoSize = 10;
-                    break;
-                case 6:
-                    cargoSize = 6;
-                    break;
-                case 7:
-                    cargoSize = 7;
                     break;
                 default:
                     break;
