@@ -62,6 +62,13 @@ namespace SpaceEPirate
             PlanetFactory corrin = new PlanetFactory("Corrin", -3, -9);
             PlanetFactory helionPrime = new PlanetFactory("Helion Prime", -5, -5);
 
+            // Create space ships as objects
+            SpaceShip beginnerShip = new SpaceShip("Simple Simon", 000, 3000);
+            SpaceShip MidLevelShip = new SpaceShip("Space Knight", 1500, 3500);
+            SpaceShip ExpertShip = new SpaceShip("Avenger jet", 2500, 2000);
+
+
+
             Console.WriteLine($"Welcome to {currentPlanet}!  What would you like to do? \n1.The Trader's Market \n2.Shipshape Ship Shop\n3.Travel to next planet");
 
             option = Utility.ErrorHandler(numOptions);
