@@ -17,10 +17,10 @@ namespace SpaceEPirate
             yCoord = iYCoord;
         }
 
-        internal static double DistanceToPlanet(PlanetFactory a, PlanetFactory b)
+        internal static double DistanceToPlanet(PlanetFactory startPlanet, PlanetFactory endPlanet)
         {
             double distance = 0;
-            distance = Math.Pow((a.xCoord - b.xCoord), 2) + Math.Pow((a.yCoord - b.yCoord), 2);
+            distance = Math.Pow((startPlanet.xCoord - endPlanet.xCoord), 2) + Math.Pow((startPlanet.yCoord - endPlanet.yCoord), 2);
             distance = Math.Sqrt(distance);
             return distance;
         }

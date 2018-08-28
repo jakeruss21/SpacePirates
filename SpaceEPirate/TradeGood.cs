@@ -22,5 +22,10 @@ namespace SpaceEPirate
             quantity = iQuantity;
         }
 
+        internal static void AddGoods(TradeGood a, int addGoods)
+        {
+            a.quantity += addGoods;
+        }
+
     }
 }
