@@ -46,14 +46,17 @@ namespace SpaceEPirate
             int numOptions = 3;
             int[] latestGoods = new int[4];
 
+
             Console.WriteLine($"Welcome to {currentPlanet}!  What would you like to do? \n1.The Trader's Market \n2.Shipshape Ship Shop\n3.Travel to next planet");
 
             option = Utility.ErrorHandler(numOptions);
 
+            Console.Clear();
+
             switch (option)
             {
                 case 1:
-                    latestGoods = MarketPlace(cargo, credits);
+                    latestGoods = MarketPlace(cargo, credits);  //Pass ShipObject, pass GoodObjects (via array or list possibly?)
                     Console.WriteLine("Something Happened");
                     Console.Read();
                     break;
@@ -64,13 +67,6 @@ namespace SpaceEPirate
                 case 3:
                     Travel();
                     break;
-                default:
-                    break;
-            }
-
-            switch(latestGoods[0])
-            {
-                // Add the right goods to the right place... hopefully
                 default:
                     break;
             }
