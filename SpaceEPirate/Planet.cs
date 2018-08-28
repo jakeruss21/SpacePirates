@@ -89,20 +89,5 @@ namespace SpaceEPirate
             distance = Math.Sqrt(distance);
             return distance;                
         }
-
-        internal static void Earth()
-        {
-            //TODO -- What does this do?
-        }
-
-        internal static void AlphaCentari ()
-        {
-            //TODO -- What does this do?
-        }
-
-        internal static void M63()
-        {
-            //TODO -- What does this do?
-        }
     }
 }

@@ -46,6 +46,21 @@ namespace SpaceEPirate
             int numOptions = 3;
             int[] latestGoods = new int[4];
 
+            //Create the types of Tradable Goods as objects
+            TradeGood tOil = new TradeGood("Oil", 5);
+            TradeGood tSilver = new TradeGood("Silver", 10);
+            TradeGood tGold = new TradeGood("Gold", 25);
+            TradeGood tTitanium = new TradeGood("Titanium", 10);
+
+            //Create the planets as objects
+            PlanetFactory earth = new PlanetFactory("Earth", 0, 0);
+            PlanetFactory alphaCentari = new PlanetFactory("Alpha Centari", 0, -4.367);
+            PlanetFactory m63 = new PlanetFactory("M63", -5, 4);
+            PlanetFactory magrathea = new PlanetFactory("Magrathea", 50, 50);
+            PlanetFactory vogosphere = new PlanetFactory("Vogosphere", -15, 10);
+            PlanetFactory arrakis = new PlanetFactory("Arrakis", 7, 3);
+            PlanetFactory corrin = new PlanetFactory("Corrin", -3, -9);
+            PlanetFactory helionPrime = new PlanetFactory("Helion Prime", -5, -5);
 
             Console.WriteLine($"Welcome to {currentPlanet}!  What would you like to do? \n1.The Trader's Market \n2.Shipshape Ship Shop\n3.Travel to next planet");
 
