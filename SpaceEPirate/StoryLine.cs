@@ -48,7 +48,7 @@ namespace SpaceEPirate
 
             Console.WriteLine($"Welcome to {currentPlanet}!  What would you like to do? \n1.The Trader's Market \n2.Shipshape Ship Shop\n3.Travel to next planet");
 
-            option = Utility.ErrorHandler(option, numOptions);
+            option = Utility.ErrorHandler(numOptions);
 
             switch (option)
             {
@@ -82,33 +82,12 @@ namespace SpaceEPirate
             int[] newGoods = new int[4]; // 0 = goodType; 1 = Quantity of goodType; 2 = remaining credits after purchase; 3 = remaining cargo space;
             List<string> goodsNCargo = new List<string>{""};
             int option = 0;
-            Boolean answer = false;
 
+            int numOptions = 2;
             Console.WriteLine($"You have {credits}CC and {storage} space available in your ship.\n");
             Console.WriteLine($"What would you like to do? \n1. Buy \n2. Sell \n3. Go to Planet Menu");
 
-            while (option < 1 || option > 3)
-            {
-                do
-                {
-                    try
-                    {
-                        option = int.Parse(Console.ReadLine());
-                        answer = true;
-                    }
-                    catch (Exception)
-                    {
-                        Console.Write("Please enter a valid option:  ");
-                        answer = false;
-                    }
-                } while (answer == false);
-
-                if (option < 1 || option > 3)
-                {
-                    Console.Write("Please enter a valid option:  ");
-                }
-                else { }
-            }
+            option = Utility.ErrorHandler(numOptions);
 
             switch (option)
             {

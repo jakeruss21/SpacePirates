@@ -9,6 +9,8 @@ namespace SpaceEPirate
 
         internal static int BuyGoods(int goodType = 0)
         {
+            int option = 0;
+            int numOptions = 4;
             Boolean answer = false;
 
             Console.WriteLine($"Please enter the number for the good you would like to purchase");
@@ -22,30 +24,7 @@ namespace SpaceEPirate
             Console.WriteLine($"6. {ConvertNumberGoods(6)}    || {UnitCost(6)}CC            || {UnitSize(6)} ");
             Console.WriteLine($"7. {ConvertNumberGoods(7)}              || {UnitCost(7)}CC            || {UnitSize(7)} ");
 
-            while (goodType < 1 || goodType > 7)
-            {
-                do
-                {
-                    try
-                    {
-                        goodType = int.Parse(Console.ReadLine());
-                        answer = true;
-                    }
-                    catch (Exception)
-                    {
-                        Console.Write("Please enter a valid good ID number:  ");
-                        answer = false;
-                    }
-                } while (answer == false);
-
-                if (goodType < 1 || goodType > 7)
-                {
-                    Console.Write("Please enter a valid good ID number:  ");
-                }
-                else { }
-            }
-            return goodType;
-        }
+            option = Utility.ErrorHandler(numOptions);        }
 
         internal static string ConvertNumberGoods(int goodType = 0)
         {
@@ -63,15 +42,6 @@ namespace SpaceEPirate
                     break;
                 case 4:
                     goodName = "Silver";
-                    break;
-                case 5:
-                    goodName = "Diamond dust";
-                    break;
-                case 6:
-                    goodName = "Ship Batteries";
-                    break;
-                case 7:
-                    goodName = "Wood";
                     break;
                 default:
                     break;
