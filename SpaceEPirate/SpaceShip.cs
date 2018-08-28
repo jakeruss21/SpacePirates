@@ -6,23 +6,23 @@ namespace SpaceEPirate
 {
     class SpaceShip
     {
+        string shipName = "";
+        int shipCost = 0;
+        int cargoCapacity = 0;
+        
 
-        internal static string BeginnerShip(string bShip = "SimpleSimon")
-        {
-            return bShip;
-        }
-        internal static string MidLevelShip(string mShip = "Space Knight")
-        {
 
-            return mShip;
-        }
-        internal static string ExpertShip(string topShip = "Avenger jet")
+        public SpaceShip(string ishipName, int ishipCost, int icargoCapacity, int ifuelCapacity )
         {
-
-            return topShip;
+            shipName = ishipName;
+            shipCost = ishipCost;
+            cargoCapacity = icargoCapacity;
+            fuelCapacity = ifuelCapacity;
         }
+
+        
        internal static int ShipGarage(int shipType = 0)
-        {
+       {
             int numOptions = 3;
 
             Console.WriteLine("Welcome to the ship garage. You may select or buy a ship you would like to fly");
@@ -101,6 +101,6 @@ namespace SpaceEPirate
             }
             return capacity;
         }
-
+       
     }
 }
