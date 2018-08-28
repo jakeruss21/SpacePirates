@@ -58,9 +58,9 @@ namespace SpaceEPirate
             PlanetFactory m63 = new PlanetFactory("M63", -5, 4);
             PlanetFactory magrathea = new PlanetFactory("Magrathea", 50, 50);
             PlanetFactory vogosphere = new PlanetFactory("Vogosphere", -15, 10);
-            PlanetFactory arrakis = new PlanetFactory("Arrakis", 7, 3);
+            PlanetFactory arrakis = new PlanetFactory("Arrakis", 25, 3);
             PlanetFactory corrin = new PlanetFactory("Corrin", -3, -9);
-            PlanetFactory helionPrime = new PlanetFactory("Helion Prime", -5, -5);
+            PlanetFactory helionPrime = new PlanetFactory("Helion Prime", -35, -15);
 
             Console.WriteLine($"Welcome to {currentPlanet}!  What would you like to do? \n1.The Trader's Market \n2.Shipshape Ship Shop\n3.Travel to next planet");
 
