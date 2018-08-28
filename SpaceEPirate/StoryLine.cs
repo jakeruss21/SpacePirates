@@ -42,33 +42,13 @@ namespace SpaceEPirate
         {
             //double year = 0;
             int option = 0;
-            bool answer = false;  //used to check inputs
             int cargo = 1000;  // Place holder
+            int numOptions = 3;
             int[] latestGoods = new int[4];
 
             Console.WriteLine($"Welcome to {currentPlanet}!  What would you like to do? \n1.The Trader's Market \n2.Shipshape Ship Shop\n3.Travel to next planet");
-            while (option < 1 || option > 3)
-            {
-                do
-                {
-                    try
-                    {
-                        option = int.Parse(Console.ReadLine());
-                        answer = true;
-                    }
-                    catch (Exception)
-                    {
-                        Console.Write("Please enter a valid option:  ");
-                        answer = false;
-                    }
-                } while (answer == false);
 
-                if (option < 1 || option > 3)
-                {
-                    Console.Write("Please enter a valid option:  ");
-                }
-                else { }
-            }
+            option = Utility.ErrorHandler(option, numOptions);
 
             switch (option)
             {
