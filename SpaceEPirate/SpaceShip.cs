@@ -6,11 +6,11 @@ namespace SpaceEPirate
 {
     class SpaceShip
     {
-        string shipName = "";
-        int shipCost = 0;
-        int cargoCapacity = 0;
-        double fuelCapacity = 0;
-        int topSpeed = 0;
+        public string shipName = "";
+        public int shipCost = 0;
+        public int cargoCapacity = 0;
+        public double fuelCapacity = 0;
+        public int topSpeed = 0;
         
 
 
