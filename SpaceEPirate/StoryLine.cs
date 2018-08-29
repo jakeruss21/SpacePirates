@@ -8,8 +8,6 @@ namespace SpaceEPirate
     {
         internal static void Run()
         {
-            string characterName = "";
-            int credits = 0;
             string ship = "";
             string currentPlanet = "";
 
@@ -19,7 +17,7 @@ namespace SpaceEPirate
 
             currentPlanet = Planet.StartPlanet(0);
             StartPoint(player, currentPlanet);
-            BeginAdventure(characterName, credits, ship, currentPlanet);
+            BeginAdventure(player, ship, currentPlanet);
         }
 
         static void StartPoint(UserProfile player, string currentPlanet)
@@ -38,12 +36,10 @@ namespace SpaceEPirate
             Console.Clear();
         }
 
-        static void BeginAdventure(string characterName, int credits, string ship, string currentPlanet)
+        static void BeginAdventure(UserProfile player, string ship, string currentPlanet)
         {
-            //double year = 0;
             int option = 0;
             int menuOptions = 3;
-            int[] latestGoods = new int[4];
 
             //Create the types of Tradable Goods as objects
             TradeGood[] cargoInventory = new TradeGood[4];
@@ -84,7 +80,7 @@ namespace SpaceEPirate
             switch (option)
             {
                 case 1:
-                    latestGoods = MarketPlace(cargoInventory, credits);  //Pass ShipObject, pass GoodObjects (via array or list possibly?)
+                    MarketPlace(cargoInventory);  //Pass ShipObject, pass GoodObjects (via array or list possibly?)
                     Console.WriteLine("Something Happened");
                     Console.Read();
                     break;
