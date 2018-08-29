@@ -40,54 +40,5 @@ namespace SpaceEPirate
             Console.Clear();
             return planetName;
         }
-
-        internal static double CalcDistance(int startPlanet, int endPlanet)
-        {
-            double distance = 0;
-            double startX = 0;
-            double startY = 0;
-            double endX = 0;
-            double endY = 0;
-
-            switch(startPlanet)
-            {
-                case 1:
-                    startX = 0;
-                    startY = 0;
-                    break;
-                case 2:
-                    startX = 0;
-                    startY = -4.367;
-                    break;
-                case 3:
-                    startX = -5;
-                    startY = 4;
-                    break;
-                default:
-                    break;
-            }
-
-            switch(endPlanet)
-            {
-                case 1:
-                    endX = 0;
-                    endY = 0;
-                    break;
-                case 2:
-                    endX = 0;
-                    startY = -4.367;
-                    break;
-                case 3:
-                    endX = -5;
-                    endY = 4;
-                    break;
-                default:
-                    break;
-            }
-
-            distance = Math.Pow((startX - endX), 2) + Math.Pow((startY - endY), 2);
-            distance = Math.Sqrt(distance);
-            return distance;                
-        }
     }
 }

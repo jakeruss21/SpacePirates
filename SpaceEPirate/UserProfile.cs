@@ -6,6 +6,17 @@ namespace SpaceEPirate
 {
     class UserProfile
     {
+        public string userName = "";
+        public int cosmicCredits = 1000;
+        public int yearsPlayed;
+
+        public UserProfile()
+        {
+            userName = UserName();
+            cosmicCredits = 1000;
+            yearsPlayed = 0;
+        }
+
 
         internal static string UserName(string name = "")
         {
@@ -15,14 +26,9 @@ namespace SpaceEPirate
             name = Console.ReadLine();
 
             Console.WriteLine($"Your character name is {name}.");
-            Console.WriteLine($"You have {UserMoney()} credits");
-            Console.WriteLine($"Your spaceship is a {SpaceShip.BeginnerShip()}");
+            Console.WriteLine($"You have 1000 cosmic credits");
+            Console.WriteLine($"Your spaceship is the Simple Simon");
             return name;
-        }
-
-        internal static int UserMoney(int credits = 1000)
-        {
-            return credits;
         }
 
 

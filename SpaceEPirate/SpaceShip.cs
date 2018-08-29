@@ -9,15 +9,18 @@ namespace SpaceEPirate
         string shipName = "";
         int shipCost = 0;
         int cargoCapacity = 0;
+        double fuelCapacity = 0;
+        int topSpeed = 0;
         
 
 
-        public SpaceShip(string ishipName, int ishipCost, int icargoCapacity, int ifuelCapacity )
+        public SpaceShip(string ishipName, int ishipCost, int icargoCapacity, double ifuelCapacity, int iTopSpeed)
         {
             shipName = ishipName;
             shipCost = ishipCost;
             cargoCapacity = icargoCapacity;
             fuelCapacity = ifuelCapacity;
+            topSpeed = iTopSpeed;
         }
 
         
