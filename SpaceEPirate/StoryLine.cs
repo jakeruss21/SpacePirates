@@ -86,7 +86,7 @@ namespace SpaceEPirate
             switch (option)
             {
                 case 1:
-                    MarketPlace(cargoInventory);  //Pass ShipObject, pass GoodObjects (via array or list possibly?)
+                    Economy.MarketPlace(cargoInventory, player);  //Pass ShipObject, pass GoodObjects (via array or list possibly?)
                     Console.WriteLine("Something Happened");
                     Console.Read();
                     break;
@@ -103,67 +103,7 @@ namespace SpaceEPirate
 
         }
 
-        internal static int[] MarketPlace(TradeGood[] cargoInventory, int credits = 0)
-        {
-            int[] newGoods = new int[4]; // 0 = goodType; 1 = Quantity of goodType; 2 = remaining credits after purchase; 3 = remaining cargo space;
-            int option = 0;
 
-            int numOptions = 2;
-            Console.WriteLine($"You have {credits}CC and  space available in your ship.\n");
-            Console.WriteLine($"What would you like to do? \n1. Buy \n2. Sell \n3. Go to Planet Menu");
-
-            option = Utility.ErrorHandler(numOptions);
-
-            //switch (option)
-            //{
-            //    case 1:
-            //        newGoods = BuyGoods(storage, credits);
-            //        break;
-            //    case 2:
-            //        newGoods = SellGoods(storage, credits);
-            //        break;
-            //    default:
-            //        break;
-            //}
-
-            return newGoods;
-        }
-
-        internal static int[] BuyGoods(int storage = 1000, int credits = 0)
-        {
-            int[] newGoods = new int[4];
-            string nameGood = "";
-            int cost = 0;
-            int cargoSpace = 0;
-
-            newGoods[0] = Economy.BuyGoods();  //Type of good purchased
-            nameGood = Economy.ConvertNumberGoods(newGoods[0]);
-
-            newGoods[1] = Economy.TotalCost(newGoods[0], credits, storage); //Quantity of goods purchased
-
-            cost = newGoods[1] * Economy.UnitCost(newGoods[0]);  //Remaining CosmicCredits
-            newGoods[2] = credits - cost;
-
-            cargoSpace = newGoods[1] * Economy.UnitSize(newGoods[0]);
-            newGoods[3] = storage - cargoSpace;  //Remaining storage space in the ship
-
-            Console.WriteLine($"You have purchased: {newGoods[1]} units of {nameGood} for {cost}CC.");
-            Console.WriteLine($"You have {newGoods[2]}CC and {newGoods[3]} storage space on your ship remaining.");
-            Console.ReadLine();
-            Console.Clear();
-
-            return newGoods;
-        }
-
-        internal static int[] SellGoods(int storage = 1000, int credits = 0)
-        {
-            int[] soldGoods = new int[4];
-            Console.WriteLine("Do something here");
-            Console.Read();
-            return soldGoods;
-        }
-
-       
 
 
         internal static void Travel()
