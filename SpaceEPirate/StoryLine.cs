@@ -65,9 +65,15 @@ namespace SpaceEPirate
             PlanetFactory helionPrime = new PlanetFactory("Helion Prime", -5, -5);
 
             // Create space ships as objects
+            SpaceShip[] shipShop = new SpaceShip[3];
+
             SpaceShip beginnerShip = new SpaceShip("Simple Simon", 000, 3000, 10, 4);
             SpaceShip MidLevelShip = new SpaceShip("Space Knight", 1500, 3500, 40, 7);
             SpaceShip ExpertShip = new SpaceShip("Avenger jet", 2500, 2000, 100, 9);
+
+            shipShop[0] = beginnerShip;
+            shipShop[1] = MidLevelShip;
+            shipShop[2] = ExpertShip;
 
 
 
@@ -85,7 +91,7 @@ namespace SpaceEPirate
                     Console.Read();
                     break;
                 case 2:
-                    SpaceShip.ShipGarage();
+                   ShipGarage();
                    
                     break;
                 case 3:
