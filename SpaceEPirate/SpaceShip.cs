@@ -42,64 +42,11 @@ namespace SpaceEPirate
         }
         internal static string ConvertShips(int shipType = 0)
         {
-            string shipName = "";
-            switch (shipType)
-            {
-                case 1:
-                    shipName = "Simple Simon";
-                    break;
-                case 2:
-                    shipName = "Space Knight";
-                    break;
-                case 3:
-                    shipName = "Avenger Jet";
-                    break;
-                default:
-                    break;
-            }
-            return shipName;
+            
         }
 
-        internal static int ShipCost(int shipType = 0)
-        {
-            int cost = 0;
-
-            switch (shipType)
-            {
-                case 1:
-                    cost = 000;
-                    break;
-                case 2:
-                    cost = 1500;
-                    break;
-                case 3:
-                    cost = 2500;
-                    break;
-                default:
-                    break;
-            }
-            return cost;
-
-        }
-        internal static int CargoCapacity(int shipType = 0)
-        {
-            int capacity = 0;
-
-            switch (shipType)
-            {
-                case 1:
-                    capacity = 3000;
-                    break;
-                case 2:
-                    capacity = 3500;
-                    break;
-                case 3:
-                    capacity = 2000;
-                    break;
-                default:
-                    break;
-            }
-            return capacity;
+        
+        
         }
        
     }
