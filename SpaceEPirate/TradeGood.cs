@@ -24,9 +24,14 @@ namespace SpaceEPirate
             cost = iCost;
         }
 
-        internal static void AddGoods(TradeGood a, int addGoods)
+        internal static void AddGoods(TradeGood add, int addGoods)
         {
-            a.quantity += addGoods;
+            add.quantity += addGoods;
+        }
+
+        internal static void SellGoods(TradeGood sell, int sellGoods)
+        {
+            sell.quantity -= sellGoods;
         }
 
     }

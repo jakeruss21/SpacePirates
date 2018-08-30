@@ -24,5 +24,18 @@ namespace SpaceEPirate
             distance = Math.Sqrt(distance);
             return distance;
         }
+
+        internal static int[] MarketValue(int numberOfGoods)
+        {
+            int[] planetPrices = new int[numberOfGoods];
+            Random rand = new Random();
+
+            for (int i = 0; i < numberOfGoods; i++)
+            {
+                planetPrices[i] = rand.Next(100);
+            }
+
+            return planetPrices;
+        }
     }
 }

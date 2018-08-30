@@ -6,6 +6,34 @@ namespace SpaceEPirate
 {
     class Economy
     {
+        internal static void MarketPlace(TradeGood[] cargoInventory, UserProfile player, SpaceShip currentShip)
+        {
+            int option = 0;
+            int goodChoice = 0;
+            int addQuantity = 0;
+
+            int numOptions = 2;
+            Console.WriteLine($"You have {player.cosmicCredits}CC and  space available in your ship.\n");
+            Console.WriteLine($"What would you like to do? \n1. Buy \n2. Sell \n3. Go to Planet Menu");
+
+            option = Utility.ErrorHandler(numOptions);
+
+            switch (option)
+            {
+                case 1:
+                    goodChoice = BuyGoods(cargoInventory);
+                    addQuantity = TotalCost(player, cargoInventory[goodChoice], currentShip);
+                    TradeGood.AddGoods(cargoInventory[goodChoice], addQuantity);
+                    Console.WriteLine($"There are now {cargoInventory[goodChoice].quantity} pieces of {cargoInventory[goodChoice].goodName}");
+                    break;
+                case 2:
+                    //newGoods = SellGoods(storage, credits);
+                    break;
+                default:
+                    break;
+            }
+
+        }
 
         internal static int BuyGoods(TradeGood[] tradeGoods)
         {
@@ -62,29 +90,7 @@ namespace SpaceEPirate
             return quantity;
         }
 
-        internal static void MarketPlace(TradeGood[] cargoInventory, UserProfile player)
-        {
-            int option = 0;
 
-            int numOptions = 2;
-            Console.WriteLine($"You have {player.cosmicCredits}CC and  space available in your ship.\n");
-            Console.WriteLine($"What would you like to do? \n1. Buy \n2. Sell \n3. Go to Planet Menu");
-
-            option = Utility.ErrorHandler(numOptions);
-
-            //switch (option)
-            //{
-            //    case 1:
-            //        newGoods = BuyGoods(storage, credits);
-            //        break;
-            //    case 2:
-            //        newGoods = SellGoods(storage, credits);
-            //        break;
-            //    default:
-            //        break;
-            //}
-
-        }
 
 
     }

@@ -8,7 +8,6 @@ namespace SpaceEPirate
     {
         internal static void Run()
         {
-            string ship = "";
             string currentPlanet = "";
 
             Console.WriteLine("Welcome to Space Pirate!");
@@ -17,7 +16,7 @@ namespace SpaceEPirate
 
             currentPlanet = Planet.StartPlanet(0);
             StartPoint(player, currentPlanet);
-            BeginAdventure(player, ship, currentPlanet);
+            BeginAdventure(player, currentPlanet);
         }
 
         static void StartPoint(UserProfile player, string currentPlanet)
@@ -36,7 +35,7 @@ namespace SpaceEPirate
             Console.Clear();
         }
 
-        static void BeginAdventure(UserProfile player, string ship, string currentPlanet)
+        static void BeginAdventure(UserProfile player, string currentPlanet)
         {
             int option = 0;
             int menuOptions = 3;
@@ -53,6 +52,8 @@ namespace SpaceEPirate
             cargoInventory[1] = tSilver;
             cargoInventory[2] = tGold;
             cargoInventory[3] = tTitanium;
+
+            int[] setGoodPrice = new int[cargoInventory.Length];
 
             //Create the planets as objects
             PlanetFactory earth = new PlanetFactory("Earth", 0, 0);
@@ -75,8 +76,17 @@ namespace SpaceEPirate
             shipShop[1] = MidLevelShip;
             shipShop[2] = ExpertShip;
 
+            // Need a loop here so that the player can continue to play for '40' years
 
+            setGoodPrice = PlanetFactory.MarketValue(setGoodPrice.Length);
+            for(int i = 0; i < setGoodPrice.Length; i++)
+            {
+                cargoInventory[i].cost = setGoodPrice[i];
+            }
 
+            SpaceShip currentShip = beginnerShip;
+
+            Console.WriteLine($"{player.userName}   {player.cosmicCredits} credits      {currentShip.shipName}      {currentShip.fuelCapacity} fuel\n\n");
             Console.WriteLine($"Welcome to {currentPlanet}!  What would you like to do? \n1.The Trader's Market \n2.Shipshape Ship Shop\n3.Travel to next planet");
 
             option = Utility.ErrorHandler(menuOptions);
@@ -86,8 +96,7 @@ namespace SpaceEPirate
             switch (option)
             {
                 case 1:
-                    Economy.MarketPlace(cargoInventory, player);  //Pass ShipObject, pass GoodObjects (via array or list possibly?)
-                    Console.WriteLine("Something Happened");
+                    Economy.MarketPlace(cargoInventory, player, currentShip);  //Pass current ShipObject, GoodObjects, and UserProfile object
                     Console.Read();
                     break;
                 case 2:
