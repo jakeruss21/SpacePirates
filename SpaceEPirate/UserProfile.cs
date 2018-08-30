@@ -31,9 +31,10 @@ namespace SpaceEPirate
             return name;
         }
 
-
-
-
+        internal static void PrintUserInfo(UserProfile player, SpaceShip currentShip)
+        {
+            Console.WriteLine($"Name: {player.userName}   Credits: {player.cosmicCredits}      Ship: {currentShip.shipName}      Fuel: {currentShip.fuelCapacity} \n");
+        }
 
 
 

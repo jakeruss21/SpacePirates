@@ -105,7 +105,7 @@ namespace SpaceEPirate
 
             SpaceShip currentShip = beginnerShip;
 
-            Console.WriteLine($"{player.userName}   {player.cosmicCredits} credits      {currentShip.shipName}      {currentShip.fuelCapacity} fuel\n\n");
+            UserProfile.PrintUserInfo(player, currentShip);
             Console.WriteLine($"Welcome to {currentPlanet}!  What would you like to do? \n1.The Trader's Market \n2.Shipshape Ship Shop\n3.Travel to next planet");
 
             option = Utility.ErrorHandler(menuOptions);
