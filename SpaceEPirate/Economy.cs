@@ -100,7 +100,8 @@ namespace SpaceEPirate
 
             int cargoSpace = sellQuantity * cargoInventory[goodType].size;
 
-            cargoInventory[goodType].quantity -= cargoSpace;
+            cargoInventory[goodType].quantity -= sellQuantity;
+            currentShip.cargoCapacity += (sellQuantity * cargoInventory[goodType].size);
             player.cosmicCredits += moneyMade;
         }
 
@@ -140,7 +141,7 @@ namespace SpaceEPirate
             } while (insufficient == true);
 
             player.cosmicCredits -= totalCost;
-            spaceShips.cargoCapacity -= quantity;
+            spaceShips.cargoCapacity -= (quantity * tradeGoods.size);
 
             return quantity;
         }
