@@ -6,7 +6,7 @@ namespace SpaceEPirate
 {
     class StoryLine
     {
-        static void StartPage(string title)
+        static void StartPage(string title = "")
         {
             Console.Title = "ASCII Art";
              title = @"
@@ -20,9 +20,8 @@ namespace SpaceEPirate
 ░  ░  ░  ░░         ░   ▒   ░           ░      ░░        ▒ ░  ░░   ░   ░   ▒    ░         ░   ░  ░  ░  
       ░                 ░  ░░ ░         ░  ░             ░     ░           ░  ░           ░  ░      ░ ";
             Console.WriteLine(title);
-            Console.Read();
             Console.WriteLine("Press <Enter> to continue...");
-            Console.ReadKey();
+            Console.ReadLine();
             Console.Clear();
 
         }
@@ -30,7 +29,7 @@ namespace SpaceEPirate
         {
             string currentPlanet = "";
 
-            Console.WriteLine("Welcome to Space Pirate!");
+            StartPage();
 
             UserProfile player = new UserProfile();
 
