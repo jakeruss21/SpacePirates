@@ -91,7 +91,7 @@ namespace SpaceEPirate
                     Console.Read();
                     break;
                 case 2:
-                   ShipGarage();
+                   SpaceShip.ShipGarage(shipShop, player);
                    
                     break;
                 case 3:

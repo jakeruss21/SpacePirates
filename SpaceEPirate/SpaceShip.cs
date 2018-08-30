@@ -24,80 +24,28 @@ namespace SpaceEPirate
         }
 
         
-       internal static int[] ShipGarage(SpaceShip[] shipShop, int credits)
+       internal static int ShipGarage(SpaceShip[] shipShop, UserProfile player)
        {
-            int numOptions = 3;
-            
-            {
-                int[] newShips= new int[3]; // 0 = goodType; 1 = Quantity of goodType; 2 = remaining credits after purchase; 3 = remaining cargo space;
-                int option = 0;
+            int numOptions = 3;            
+            int shipChoice = 0;
 
-               
-               
-
-             
-
-               Console.WriteLine("Welcome to the ship garage. You may select or buy a ship you would like to fly." +
-                "You currently have {credits}cc.");
+            Console.WriteLine("Welcome to the ship garage. You may select or buy a ship you would like to fly." +
+                              $"You currently have {player.cosmicCredits}cc.");
             Console.ReadLine();
 
             Console.WriteLine($"Please enter the number for the good you buy or fly");
             Console.WriteLine($"=========================================================================");
             Console.WriteLine($"Item                 || Cost of Ship  || Amount of Cargo space avalible ");
             Console.WriteLine($"=========================================================================");
-            Console.WriteLine($"1.      || {ShipCost(1)}CC           ||  {cargoCapacity(1)}      ");
-            Console.WriteLine($"2. {ConvertShips(2)}      || {ShipCost(2)}CC        ||  {cargoCapacity(2)}       ");
-            Console.WriteLine($"3. {ConvertShips(3)}       || {ShipCost(3)}CC        ||  {cargoCapacity(3)}       ");
+            Console.WriteLine($"1. {shipShop[0].shipName}     || {shipShop[0].shipCost}CC           ||  {shipShop[0].cargoCapacity}      ");
+            Console.WriteLine($"2. {shipShop[1].shipName}      || {shipShop[1].shipCost}CC        ||  {shipShop[1].cargoCapacity}       ");
+            Console.WriteLine($"3. {shipShop[2].shipName}       || {shipShop[2].shipCost}CC        ||  {shipShop[2].cargoCapacity}       ");
 
-            shipType = Utility.ErrorHandler(numOptions);
+            shipChoice = Utility.ErrorHandler(numOptions);
 
-            return shipType;
+            return shipChoice;
        }
-        internal static string ConvertShips(int shipType = 0)
-        {
-            string shipName = "";
-            switch (shipType)
-            {
-                case 1:
-                    shipName = "Simple Simon'";
-                    break;
-                case 2:
-                    shipName = "Space Knight";
-                    break;
-                case 3:
-                    shipName = "Avenger Jet";
-                default:
-                    break;
-
-            }
-            return shipName;
-        }
-        internal static int ShipCost(int shipType= 0)
-        {
-            int cost = 0;
-                switch(shipType)
-                {
-                 case 1:
-                    cost = 000;
-                    break;
-                case 2:
-                    cost = 1500;
-                    break;
-                case 3:
-                    cost = 2500;
-                default:
-                    break;
-
-
-
-
-                }
-
-
-        }
-        
-        
-        
+ 
        
     }
 }
