@@ -13,7 +13,7 @@ namespace SpaceEPirate
         public UserProfile()
         {
             userName = UserName();
-            cosmicCredits = 1000;
+            cosmicCredits = 4000;
             yearsPlayed = 0;
         }
 

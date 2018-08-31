@@ -24,9 +24,9 @@ namespace SpaceEPirate
         }
 
         
-       internal static int ShipGarage(SpaceShip[] shipShop, UserProfile player)
+       internal static SpaceShip ShipGarage(SpaceShip[] shipShop, UserProfile player)
        {
-            int numOptions = 3;            
+            int numOptions = 3;   // can be changed to shipshop.length          
             int shipChoice = 0;
 
             Console.WriteLine("Welcome to the ship garage. You may select or buy a ship you would like to fly." +
@@ -41,9 +41,9 @@ namespace SpaceEPirate
             Console.WriteLine($"2. {shipShop[1].shipName}      || {shipShop[1].shipCost}CC        ||  {shipShop[1].cargoCapacity}       ");
             Console.WriteLine($"3. {shipShop[2].shipName}       || {shipShop[2].shipCost}CC        ||  {shipShop[2].cargoCapacity}       ");
 
-            shipChoice = Utility.ErrorHandler(numOptions);
+            shipChoice = Utility.ErrorHandler(numOptions)-1;
 
-            return shipChoice;
+            return shipShop[shipChoice];
        }
  
        

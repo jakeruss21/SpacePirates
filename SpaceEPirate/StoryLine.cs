@@ -120,7 +120,9 @@ namespace SpaceEPirate
                     break;
                 case 2:
                    SpaceShip.ShipGarage(shipShop, player);
-                   
+                    currentShip = SpaceShip.ShipGarage(shipShop, player);
+                    Console.WriteLine($"You have purchased the {currentShip.shipName}");
+                    Console.ReadLine();
                     break;
                 case 3:
                     Travel();
