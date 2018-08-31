@@ -15,7 +15,7 @@ namespace SpaceEPirate
 
             do
             {
-                Console.WriteLine($"You have {player.cosmicCredits}CC and {currentShip.cargoCapacity} space available in your ship.\n");
+                UserProfile.PrintUserInfo(player, currentShip);
                 Console.WriteLine($"What would you like to do? \n1. Buy \n2. Sell \n3. View Inventory \n 4. Go to Planet Menu");
 
                 option = Utility.ErrorHandler(numOptions);
@@ -52,10 +52,10 @@ namespace SpaceEPirate
             Console.WriteLine($"Please enter the number for the good you would like to purchase");
             Console.WriteLine($"=========================================================================");
             Console.WriteLine($"Item                 || Cost per Unit    || Cargo space required per unit");
-            Console.WriteLine($"1. {tradeGoods[0].goodName}            || {tradeGoods[0].cost}CC             || {tradeGoods[0].size} ");
-            Console.WriteLine($"2. {tradeGoods[1].goodName}               || {tradeGoods[1].cost}CC             || {tradeGoods[1].size} ");
-            Console.WriteLine($"3. {tradeGoods[2].goodName}              || {tradeGoods[2].cost}CC            || {tradeGoods[2].size} ");
-            Console.WriteLine($"4. {tradeGoods[3].goodName}            || {tradeGoods[3].cost}CC             || {tradeGoods[3].size} ");
+            Console.WriteLine($"1. {tradeGoods[0].goodName}            || {tradeGoods[0].cost}CC              || {tradeGoods[0].size} ");
+            Console.WriteLine($"2. {tradeGoods[1].goodName}               || {tradeGoods[1].cost}CC                 || {tradeGoods[1].size} ");
+            Console.WriteLine($"3. {tradeGoods[2].goodName}              || {tradeGoods[2].cost}CC             || {tradeGoods[2].size} ");
+            Console.WriteLine($"4. {tradeGoods[3].goodName}            || {tradeGoods[3].cost}CC               || {tradeGoods[3].size} ");
 
             goodType = Utility.ErrorHandler(numOptions);
 
@@ -100,7 +100,8 @@ namespace SpaceEPirate
 
             int cargoSpace = sellQuantity * cargoInventory[goodType].size;
 
-            cargoInventory[goodType].quantity -= cargoSpace;
+            cargoInventory[goodType].quantity -= sellQuantity;
+            currentShip.cargoCapacity += (sellQuantity * cargoInventory[goodType].size);
             player.cosmicCredits += moneyMade;
         }
 
@@ -140,7 +141,7 @@ namespace SpaceEPirate
             } while (insufficient == true);
 
             player.cosmicCredits -= totalCost;
-            spaceShips.cargoCapacity -= quantity;
+            spaceShips.cargoCapacity -= (quantity * tradeGoods.size);
 
             return quantity;
         }
@@ -152,7 +153,7 @@ namespace SpaceEPirate
             Console.WriteLine("========================================================");
             for (int i = 0; i < cargoInventory.Length; i++)
             {
-                Console.WriteLine($"{i+1}. {cargoInventory[i].goodName}              {cargoInventory[i].quantity}               {cargoInventory[i].cost}");
+                Console.WriteLine($"{i+1}. {cargoInventory[i].goodName}                {cargoInventory[i].quantity}                {cargoInventory[i].cost}");
             }
         }
 
